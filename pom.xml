@@ -20,7 +20,7 @@
 		<spring.version>5.1.2.RELEASE</spring.version>
 		<junit.version>4.11</junit.version>
 		<log4j.version>1.2.17</log4j.version>
-		<sonar.host.url>http://3.91.159.61:9000/</sonar.host.url>
+		<sonar.host.url>http://172.31.28.100:9000/</sonar.host.url>
 		<sonar.login>prontolee</sonar.login>
 		<sonar.password>promise003</sonar.password>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -107,7 +107,7 @@
 	</distributionManagement>
 	
 	<build>
-		<finalName>tesla</finalName>
+		<finalName>tesla-web-application</finalName>
 		
 		<plugins>
 			<plugin>
