@@ -1,0 +1,30 @@
+node{
+         def mavenHome = tool name: 'maven_3.8.2'
+  stage('1.Getcode'){
+    //git "https://github.com/Prontoleehub/tesla-app"
+    sh "https://github.com/Prontoleehub/maven-web-application"
+    //bat "https://github.com/Prontoleehub/maven-web-application"
+  }
+  stage('2.Build'){
+     sh "${mavenHome}/bin/mvn clean package"
+  }
+  stage('3.CodeQualityAnalysis'){
+     sh "${mavenHome}/bin/mvn sonar:sonar"
+  }
+  stage('4.Upload'){
+     sh "${mavenHome}/bin/mvn deploy"
+  }
+  stage('5.Deploy2UAT'){
+     deploy adapters: [tomcat9(credentialsId: 'tomcat-manager-credentials', path: '', url: 'http://52.91.68.90:8176/')], contextPath: null, war: 'target/*war'
+  }
+  stage('6.Approval'){
+     sh "echo 'application is ready for review' " 
+     timeout(time:5, unit: 'HOURS' ) {
+      input message: 'Deployment ready, please review and approve accordingly'
+  }
+  stage('7.Production'){
+     deploy adapters: [tomcat9(credentialsId: 'tomcat-manager-credentials', path: '', url: 'http://52.91.68.90:8176/')], contextPath: null, war: 'target/*war'
+  }
+  stage('8.Notification'){}
+}
+}
