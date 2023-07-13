@@ -1,13 +1,14 @@
 node{
          def mavenHome = tool name: 'maven_3.8.2'
   stage('1.Getcode'){
-    //git "https://github.com/Prontoleehub/tesla-app"
-    sh "https://github.com/Prontoleehub/maven-web-application"
+    git "https://github.com/Prontoleehub/tesla-app"
+    //sh "https://github.com/Prontoleehub/maven-web-application"
     //bat "https://github.com/Prontoleehub/maven-web-application"
   }
   stage('2.Build'){
      sh "${mavenHome}/bin/mvn clean package"
   }
+/*
   stage('3.CodeQualityAnalysis'){
      sh "${mavenHome}/bin/mvn sonar:sonar"
   }
@@ -27,4 +28,5 @@ node{
   }
   stage('8.Notification'){}
 }
+*/
 }
