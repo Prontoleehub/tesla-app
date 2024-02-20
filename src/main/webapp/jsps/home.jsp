@@ -9,7 +9,7 @@
 </head>
 </head>
 <body>
-<h1 align="center">Welcome to Landmark Technology - Leaders in Software Delivery and DevOps Automation</h1>
+<h1 class="centered-text">Welcome to Landmark Technology - Leaders in Software Delivery and DevOps Automation</h1>
 <h2 align="center"> Welcome to Landmark Technology.......We have a demo class on DevOps E Degree with Linux and AWS  on Thursday July 15, 2023 at 3PM EST for our new batch. 
 	Landmark Technology Tesla web application project2. 
 	</h2>
